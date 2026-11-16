@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@tailwind base;                /* Warning: Unknown at rule @tailwind */
+@tailwind components;   /* Warning: Unknown at rule @tailwind */
+@tailwind utilities;            /* Warning: Unknown at rule @tailwind */
+
+/* Hamburger Animation */
+#navToggle span {
+  @apply transition-all duration-300;
+  transform-origin: center;
+}
+
+#navToggle.active span:first-child {
+  transform: rotate(45deg) translateY(12px);
+}
+
+#navToggle.active span:nth-child(2) {
+  @apply opacity-0;
+}
+
+#navToggle.active span:last-child {
+  transform: rotate(-45deg) translateY(-12px);
+}
+
+/* Menu Animation */
+#navMenu.active {
+  @apply opacity-100 visible translate-y-0;
+}

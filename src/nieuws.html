@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schrijvershoek - Nieuws</title>
+    <link href="output.css" rel="stylesheet" />
+    <style>
+      #leesVerder {
+        background-color: #68d82c;
+      }
+      #leesVerder:hover {
+        background-color: #48b80c;
+      }
+
+      .nav-link {
+        display: inline-block;
+        position: relative;
+        padding: 0.2em 0;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #ffffff;
+        transition: transform 300ms ease;
+        transform: scaleX(0);
+        transform-origin: center;
+      }
+      .nav-link:hover::after {
+        transform: scaleX(1);
+      }
+
+      #navToggle.active span:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+      }
+      #navToggle.active span:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-10px);
+      }
+      #navToggle.active span:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg);
+      }
+
+      @keyframes megaSlide {
+        0% {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes linkFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-5px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      #navMenu.show {
+        display: flex !important;
+        animation: megaSlide 0.3s ease-out forwards;
+      }
+
+      #navMenu.show li {
+        opacity: 0;
+        animation: linkFadeIn 0.2s ease-out forwards;
+      }
+      #navMenu.show li:nth-child(1) {
+        animation-delay: 0.05s;
+      }
+      #navMenu.show li:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      #navMenu.show li:nth-child(3) {
+        animation-delay: 0.15s;
+      }
+      #navMenu.show li:nth-child(4) {
+        animation-delay: 0.2s;
+      }
+      #navMenu.show li:nth-child(5) {
+        animation-delay: 0.25s;
+      }
+      #navMenu.show li:nth-child(6) {
+        animation-delay: 0.3s;
+      }
+
+      #navMenu.closing {
+        display: flex !important;
+        animation: megaSlide 0.2s ease-in reverse forwards;
+      }
+
+      @media (min-width: 768px) {
+        #navMenu,
+        #navMenu li {
+          animation: none !important;
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="overflow-x-hidden font-sans">
+    <nav id="navbartop" class="h-16 flex items-center justify-between bg-white px-6 md:px-10 border-b border-gray-100">
+      <a href="index.html">
+        <img src="images/logo.png" alt="logo" class="h-12" />
+      </a>
+      <div class="flex items-center gap-4 me-10">
+        <a href="https://www.buienradar.nl/weer/Zuidbroek/NL/2743800">
+          <img src="images/weer.png" alt="weer" class="w-auto" />
+        </a>
+        <button type="button">
+          <img src="images/zoek.png" alt="zoek" class="h-6 w-auto" />
+        </button>
+      </div>
+    </nav>
+    <nav
+      id="navbar"
+      class="relative shadow-xl w-full z-50 sticky top-0 z-50 pt-5"
+      style="background-color: #ea691e; height: 100px"
+    >
+      <div class="px-4 flex justify-between items-center max-w-6xl mx-auto h-16">
+        <button
+          id="navToggle"
+          class="md:hidden flex flex-col justify-center items-center gap-1.5 w-10 h-10 bg-transparent border-0 cursor-pointer z-[60]"
+        >
+          <span class="w-7 h-1 bg-white rounded transition-all duration-300 origin-center"></span>
+          <span class="w-7 h-1 bg-white rounded transition-all duration-300"></span>
+          <span class="w-7 h-1 bg-white rounded transition-all duration-300 origin-center"></span>
+        </button>
+        <ul
+          id="navMenu"
+          class="hidden md:flex list-none gap-8 absolute md:static top-full left-0 w-full md:w-auto bg-[#ea691e] md:bg-transparent flex-col md:flex-row p-8 md:p-0"
+        >
+          <li>
+            <a href="index.html" class="nav-link text-white font-bold text-lg md:text-base">Home</a>
+          </li>
+          <li>
+            <a href="over-ons.html" class="nav-link text-white font-bold text-lg md:text-base">Over ons</a>
+          </li>
+          <li>
+            <a href="evenementen.html" class="nav-link text-white font-bold text-lg md:text-base">Evenementen</a>
+          </li>
+          <li>
+            <a href="contact.html" class="nav-link text-white font-bold text-lg md:text-base">Contact</a>
+          </li>
+          <li>
+            <a href="nieuws.html" class="nav-link text-white font-bold text-lg md:text-base">Nieuws</a>
+          </li>
+          <li>
+            <a href="lid.html" class="nav-link text-white font-bold text-lg md:text-base">Word lid</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <section class="relative w-full py-20 text-white text-center overflow-hidden">
+      <img src="images/banner5.png" alt="" class="absolute inset-0 w-full h-full object-cover -z-10" />
+      <div class="max-w-4xl mx-auto px-6 relative z-10">
+        <h1 class="text-4xl md:text-6xl font-black mb-6 drop-shadow-md leading-tight">Nieuws</h1>
+        <p class="text-lg md:text-xl mb-10 leading-relaxed opacity-95 text-white">
+          Benieuwd hoe onze activiteiten eruit zien?
+        </p>
+      </div>
+    </section>
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-[2.5rem] p-6 shadow-md flex flex-col items-center border border-gray-100">
+            <div class="w-full aspect-[4/5] rounded-[2rem] overflow-hidden mb-6">
+              <img
+                src="images/nieuws-img/1.png"
+                alt="Kerstmarkt en lichtjesroute 2025"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h3 class="text-[#e31e1b] font-bold text-lg text-center mb-3">Kerstmarkt en lichtjesroute 2025</h3>
+            <div class="flex items-center gap-2 text-gray-500 font-medium">
+              <svg class="w-5 h-5 text-[#68d82c]" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span>20-12-2025</span>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-[2.5rem] p-6 shadow-md flex flex-col items-center border border-gray-100">
+            <div class="w-full aspect-[4/5] rounded-[2rem] overflow-hidden mb-6">
+              <img src="images/nieuws-img/2.png" alt="Kerst Workshop" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-[#e31e1b] font-bold text-lg text-center mb-3">Kerst Workshop</h3>
+            <div class="flex items-center gap-2 text-gray-500 font-medium">
+              <svg class="w-5 h-5 text-[#68d82c]" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span>09-12-2025</span>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-[2.5rem] p-6 shadow-md flex flex-col items-center border border-gray-100">
+            <div class="w-full aspect-[4/5] rounded-[2rem] overflow-hidden mb-6">
+              <img src="images/nieuws-img/3.png" alt="Kinder Bingo" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-[#e31e1b] font-bold text-lg text-center mb-3">Kinder Bingo</h3>
+            <div class="flex items-center gap-2 text-gray-500 font-medium">
+              <svg class="w-5 h-5 text-[#68d82c]" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span>15-11-2025</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-[2.5rem] p-6 shadow-md flex flex-col items-center border border-gray-100">
+            <div class="w-full aspect-[4/5] rounded-[2rem] overflow-hidden mb-6">
+              <img
+                src="images/nieuws-img/4.png"
+                alt="Kerstmarkt en lichtjesroute 2025"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h3 class="text-[#e31e1b] font-bold text-lg text-center mb-3">Spooky Griezelstation Speurtocht</h3>
+            <div class="flex items-center gap-2 text-gray-500 font-medium">
+              <svg class="w-5 h-5 text-[#68d82c]" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span>31-10-2025</span>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-[2.5rem] p-6 shadow-md flex flex-col items-center border border-gray-100">
+            <div class="w-full aspect-[4/5] rounded-[2rem] overflow-hidden mb-6">
+              <img src="images/nieuws-img/5.png" alt="Kerst Workshop" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-[#e31e1b] font-bold text-lg text-center mb-3">Kinder Disco</h3>
+            <div class="flex items-center gap-2 text-gray-500 font-medium">
+              <svg class="w-5 h-5 text-[#68d82c]" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span>25-10-2025</span>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-[2.5rem] p-6 shadow-md flex flex-col items-center border border-gray-100">
+            <div class="w-full aspect-[4/5] rounded-[2rem] overflow-hidden mb-6">
+              <img src="images/nieuws-img/6.png" alt="Kinder Bingo" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-[#e31e1b] font-bold text-lg text-center mb-3">Knutsel middag</h3>
+            <div class="flex items-center gap-2 text-gray-500 font-medium">
+              <svg class="w-5 h-5 text-[#68d82c]" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span>24-10-2025</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-[2.5rem] p-6 shadow-md flex flex-col items-center border border-gray-100">
+            <div class="w-full aspect-[4/5] rounded-[2rem] overflow-hidden mb-6">
+              <img
+                src="images/nieuws-img/7.png"
+                alt="Kerstmarkt en lichtjesroute 2025"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h3 class="text-[#e31e1b] font-bold text-lg text-center mb-3">Jeugd Viswedstrijd</h3>
+            <div class="flex items-center gap-2 text-gray-500 font-medium">
+              <svg class="w-5 h-5 text-[#68d82c]" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span>06-09-2025</span>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-[2.5rem] p-6 shadow-md flex flex-col items-center border border-gray-100">
+            <div class="w-full aspect-[4/5] rounded-[2rem] overflow-hidden mb-6">
+              <img src="images/nieuws-img/8.png" alt="Kerst Workshop" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-[#e31e1b] font-bold text-lg text-center mb-3">Kinder Zomerfeest</h3>
+            <div class="flex items-center gap-2 text-gray-500 font-medium">
+              <svg class="w-5 h-5 text-[#68d82c]" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span>10-07-2025</span>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-[2.5rem] p-6 shadow-md flex flex-col items-center border border-gray-100">
+            <div class="w-full aspect-[4/5] rounded-[2rem] overflow-hidden mb-6">
+              <img src="images/nieuws-img/9.png" alt="Kinder Bingo" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-[#e31e1b] font-bold text-lg text-center mb-3">Workshop Tiffany</h3>
+            <div class="flex items-center gap-2 text-gray-500 font-medium">
+              <svg class="w-5 h-5 text-[#68d82c]" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span>03-06-2025</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-[2.5rem] p-6 shadow-md flex flex-col items-center border border-gray-100">
+            <div class="w-full aspect-[4/5] rounded-[2rem] overflow-hidden mb-6">
+              <img
+                src="images/nieuws-img/10.png"
+                alt="Kerstmarkt en lichtjesroute 2025"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h3 class="text-[#e31e1b] font-bold text-lg text-center mb-3">Jeugd Workshop</h3>
+            <div class="flex items-center gap-2 text-gray-500 font-medium">
+              <svg class="w-5 h-5 text-[#68d82c]" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span>31-05-2025</span>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-[2.5rem] p-6 shadow-md flex flex-col items-center border border-gray-100">
+            <div class="w-full aspect-[4/5] rounded-[2rem] overflow-hidden mb-6">
+              <img src="images/nieuws-img/11.png" alt="Kerst Workshop" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-[#e31e1b] font-bold text-lg text-center mb-3">Expeditie Zuudbroek</h3>
+            <div class="flex items-center gap-2 text-gray-500 font-medium">
+              <svg class="w-5 h-5 text-[#68d82c]" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span>29-05-2025</span>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-[2.5rem] p-6 shadow-md flex flex-col items-center border border-gray-100">
+            <div class="w-full aspect-[4/5] rounded-[2rem] overflow-hidden mb-6">
+              <img src="images/nieuws-img/12.png" alt="Kinder Bingo" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-[#e31e1b] font-bold text-lg text-center mb-3">Eieren Zoeken</h3>
+            <div class="flex items-center gap-2 text-gray-500 font-medium">
+              <svg class="w-5 h-5 text-[#68d82c]" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span>19-04-2025</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="w-full text-white pt-16 pb-8" style="background-color: #ea691e">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          <div class="space-y-4">
+            <h3 class="text-xl font-extrabold uppercase tracking-wider">Dorpsvereniging</h3>
+            <p class="text-sm leading-relaxed opacity-90">
+              Samen maken we ons dorp een fijnere plek om te wonen sinds 1996. De Schrijvershoek is er voor iedereen.
+            </p>
+          </div>
+          <div class="space-y-4">
+            <h3 class="text-xl font-extrabold uppercase tracking-wider">Snelle Links</h3>
+            <ul class="space-y-3 text-sm">
+              <li>
+                <a href="index.html" class="opacity-90 hover:opacity-100 hover:underline transition-all">Home</a>
+              </li>
+              <li>
+                <a href="over-ons.html" class="opacity-90 hover:opacity-100 hover:underline transition-all">Over Ons</a>
+              </li>
+              <li>
+                <a href="evenementen.html" class="opacity-90 hover:opacity-100 hover:underline transition-all"
+                  >Evenementen</a
+                >
+              </li>
+              <li>
+                <a href="lid.html" class="opacity-90 hover:opacity-100 hover:underline transition-all">Lid Worden</a>
+              </li>
+            </ul>
+          </div>
+          <div class="space-y-4">
+            <h3 class="text-xl font-extrabold uppercase tracking-wider">Contact</h3>
+            <div class="space-y-4 text-sm">
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+                <p class="opacity-90">p.a. W.A. Scholtenweg 34<br />9636 BS Zuidbroek</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+                <a
+                  href="mailto:secretariaat.schrijvershoek@gmail.com"
+                  class="opacity-90 hover:opacity-100 hover:underline"
+                  >secretariaat.schrijvershoek@gmail.com</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <h3 class="text-xl font-extrabold uppercase tracking-wider">Volg ons</h3>
+            <div class="flex gap-4">
+              <a
+                href="https://www.facebook.com/schrijvershoek/?locale=nl_NL"
+                class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                >f</a
+              >
+              <a
+                href="https://www.instagram.com/dorpsverenigingschrijvershoek"
+                class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                ><img src="images/insta.png" alt="instagram"
+              /></a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center text-xs opacity-70 gap-4"
+        >
+          <p>&copy; 2026 Dorpsvereniging De Schrijvershoek. Alle rechten voorbehouden.</p>
+          <div class="flex gap-6">
+            <a href="#" class="hover:underline">Privacyverklaring</a>
+            <a href="#" class="hover:underline">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
