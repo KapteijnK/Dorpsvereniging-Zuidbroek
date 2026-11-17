@@ -5,18 +5,26 @@
 - [Deepdive All Around](#deepdive-all-around)
     - [Inhoudsopgave](#inhoudsopgave)
     - [Versiebeheer](#versiebeheer)
-    - [De Opdracht](#de-opdracht)
+    - [De Opdracht](#opdracht)
         - [Ons Doelen](#ons-doelen)
     - [Prototype / Product](#protoype--product)
     - [Voorbeeld van website](#voorbeeld-van-de-website)
-    - [Reflectie/Feedback](#reflectie-feedback)
+    - [Over Ons](#over-ons)
+        - [Wie zijn wij](#wie-zijn-wij)
+        - [Verantwoordelijkheden](#verantwoordelijkheden)
+        - [Contact opnemen](#contact-opnemen)
+    - [Reflectie / Feedback](#reflectie--feedback) 
+        - [Reflectie](#reflectie)
+        - [Feedback](#feedback)
 
 ## Versiebeheer
 
-| Datum      | Versie | Wie      | Wijzigingen    |
-| ---------- | ------ | -------- | -------------- |
-| 2026-11-16 | 1.0    | Kenji K. | Public Version |
-| 2026-11-17 | 1.1    | Kenji K. | Updated Docu   |
+| Datum      | Versie | Wie      | Wijzigingen           |
+| ---------- | ------ | -------- | --------------------- |
+| 2026-11-16 | 1.0    | Kenji K. | Public Version        |
+| 2026-11-17 | 1.1    | Kenji K. | Updated Docu          |
+| 2026-11-17 | 1.2    | Kenji K. | Updated Inhoudsopgave |
+|            |        |          |                       |
 
 ## Opdracht
 
@@ -90,17 +98,21 @@ Als u contact met ons wilt opnemen kan dit via de onderstaande emails (Klik op d
 - [David Kostwinder](mailto:dokostwinder@st.noorderpoort.nl)
 - [Rik Franzen](mailto:rfranzen@st.noorderpoort.nl)
 
-## Reflectie Feedback
+## Reflectie / Feedback
 
 Opdrachtgever: Occo ten Hoff
 
 Coach: Wander van der Wal / Reygan Leito
 
-### De Feedback
+### Reflectie
+
+Ons enige kritiekpuntje is dat we volgende keer iets korter met het design bezig moeten en eerder moeten beginnen aan de webpagina zelf.
+
+### Feedback
 
 We zijn voornamelijk heel erg trots wat we deze deepdive hebben neergezet. Zelf hadden we niet verwacht dat we zouden winnen aangezien wij hadden gekozen voor een best unieke huisstijl met alle drukke vibrante kleuren.
 
-Toch hebben we het gedaan en zijn we met een trots eindresultaat de deepdive uit gegaan, ons enige kritiekpuntje is dat we volgende keer iets korter met het design bezig moeten en eerder moeten beginnen aan de webpagina zelf.
+Toch hebben we het gedaan en zijn we met een trots eindresultaat de deepdive uit gegaan.
 
 Mocht u de eindversie met alle verwerkte feedback willen zien kunt u klikken op deze **[link](https://onszuidbroek.nl)**
 Dankjewel voor het interrese tonen en het lezen van het verloop van ons project!
