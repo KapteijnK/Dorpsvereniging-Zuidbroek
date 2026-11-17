@@ -13,7 +13,7 @@
         - [Wie zijn wij](#wie-zijn-wij)
         - [Verantwoordelijkheden](#verantwoordelijkheden)
         - [Contact opnemen](#contact-opnemen)
-    - [Reflectie / Feedback](#reflectie--feedback) 
+    - [Reflectie / Feedback](#reflectie--feedback)
         - [Reflectie](#reflectie)
         - [Feedback](#feedback)
 
@@ -24,7 +24,6 @@
 | 2026-11-16 | 1.0    | Kenji K. | Public Version        |
 | 2026-11-17 | 1.1    | Kenji K. | Updated Docu          |
 | 2026-11-17 | 1.2    | Kenji K. | Updated Inhoudsopgave |
-|            |        |          |                       |
 
 ## Opdracht
 
